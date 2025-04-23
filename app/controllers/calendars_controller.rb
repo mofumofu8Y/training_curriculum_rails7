@@ -1,3 +1,10 @@
+def create
+  binding.pry
+  Plan.create(plan_params)
+  redirect_to action: :index
+end
+
+
 class CalendarsController < ApplicationController
 
   # １週間のカレンダーと予定が表示されるページ
@@ -30,7 +37,7 @@ class CalendarsController < ApplicationController
     plans = Plan.where(date: @todays_date..@todays_date + 6)
 
     7.times do |x|
-      today_plans = []
+      today_plans = [予定の追加です]
       plans.each do |plan|
         today_plans.push(plan.plan) if plan.date == @todays_date + x
       end
