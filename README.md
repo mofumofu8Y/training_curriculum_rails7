@@ -1,24 +1,37 @@
-# README
+##テーブル設計
+### users テーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+| カラム名   | データ型 | NULL許可 | 主キー | 外部キー | 説明             |
+|------------|----------|----------|--------|----------|------------------|
+| id         | integer  | NOT NULL |        |          | ユーザーID       |
+| name       | string   | NOT NULL |        |          | ユーザー名       |
+| email      | string   | NOT NULL |        |          | メールアドレス   |
+| password   | string   | NOT NULL |        |          | パスワード       |
+| created_at | datetime | NOT NULL |        |          | 作成日時         |
+| updated_at | datetime | NOT NULL |        |          | 更新日時         |
 
-Things you may want to cover:
+---
 
-* Ruby version
+### posts テーブル
 
-* System dependencies
+| カラム名   | データ型 | NULL許可 | 主キー | 外部キー      | 説明             |
+|------------|----------|----------|--------|---------------|------------------|
+| id         | integer  | NOT NULL |        |                  | 投稿ID           |
+| title      | string   | NOT NULL |        |               | タイトル         |
+| body       | text     | NOT NULL |        |               | 本文             |
+| user_id    | integer  | NOT NULL |        |               | 投稿者のユーザーID |
+| created_at | datetime | NOT NULL |        |               | 作成日時         |
+| updated_at | datetime | NOT NULL |        |               | 更新日時         |
 
-* Configuration
+---
 
-* Database creation
+### comments テーブル
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+| カラム名   | データ型 | NULL許可 | 主キー | 外部キー              | 説明                 |
+|------------|----------|----------|--------|-----------------------|----------------------|
+| id         | integer  | NOT NULL |        |                       | コメントID           |
+| content    | text     | NOT NULL |        |                       | コメント本文         |
+| user_id    | integer  | NOT NULL |        |                       | コメント投稿者ID     |
+| post_id    | integer  | NOT NULL |        |                       | 対象の投稿ID         |
+| created_at | datetime | NOT NULL |        |                       | 作成日時             |
+| updated_at | datetime | NOT NULL |        |                       | 更新日時             |

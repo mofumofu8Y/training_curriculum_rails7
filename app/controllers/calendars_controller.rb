@@ -40,9 +40,9 @@ class CalendarsController < ApplicationController
 
     
       today_plans = []
-      <％plans.each do |plan|％>
+      plans.each do |plan|
         
-        <％end％>
+        end
 
         today_plans.push(plan.plan) if plan.date == @todays_date + x
       end
@@ -56,8 +56,7 @@ class CalendarsController < ApplicationController
 
     end
 
-  end
+  
 
-end
 
 
